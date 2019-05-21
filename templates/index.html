@@ -1,0 +1,33 @@
+{% set foo = 'moose' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Twig Test</title>
+</head>
+<body>
+    <p>My favorite links are {{ foo }}:</p>
+        <ul>
+        {% for link in links %}
+            <li><a href="{{ link.url }}" title="{{ link.title }}">{{ link.text }}</a></li>
+        {% endfor %}
+        </ul>
+
+        <ul>
+            {% for user in users %}
+            <li>{{ user.name }} is {{ user.age }} years old</li>
+            {% endfor %}
+        </ul>
+
+        <ul>
+            {% for user in users%}
+                {% if user.age > 55 %}
+                    <li>doh</li>
+                {% endif %}
+                <li>{{ user.name }} is {{ user.age }} years old</li>
+            {% endfor %}
+        </ul>
+</body>
+</html>
